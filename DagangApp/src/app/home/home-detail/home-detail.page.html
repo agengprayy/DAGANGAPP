@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{loadedData.model}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <ion-grid>
+    <ion-row>
+      <ion-col size="8" size-sm="4" offset-sm="4" ng-reflect-size="12">
+        <ion-card>
+          <img [src]="loadedData.imageUrl">
+          <ion-card-header>
+            <h2>Merk: {{loadedData.merk}}</h2>
+            <h2>{{loadedData.model}}</h2>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label>
+              <p>Rp. {{loadedData.price}}</p>
+              <p>Ready Stock: {{loadedData.stock}}</p>
+              <br>
+            </ion-label>
+            <ion-label *ngIf="loadedData.type === 'CPU'">
+              <h3>Detail :</h3>
+              <p>Base Clock : {{loadedData.baseClock}} GHz</p>
+              <p>Boost Clock : {{loadedData.boostClock}} GHz</p>
+              <p>Core : {{loadedData.core}} Cores</p>
+              <p>Thread : {{loadedData.thread}} Threads</p>
+            </ion-label>
+            <ion-label *ngIf="loadedData.type === 'RAM'">
+              <h3>Detail :</h3>
+              <p>Size : {{loadedData.size}} GB</p>
+              <p>Speed : {{loadedData.speed}} MHz</p>
+            </ion-label>
+            <ion-label *ngIf="loadedData.type === 'MB'">
+              <h3>Detail :</h3>
+              <p>Chipset : {{loadedData.chipset}}</p>
+              <p>Compatible : {{loadedData.compatible}}</p>
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

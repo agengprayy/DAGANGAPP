@@ -1,0 +1,18 @@
+<ion-grid >
+  <ion-row >
+    <ion-col>
+      <ion-card [routerLink]="['./', barang.id]">
+        <img class="pic" [src]="barang.imageUrl">
+        <ion-card-header>
+          <h2>{{barang.model}}</h2>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-label>
+            <p>{{barang.price}}</p>
+            <p>Ready Stock {{barang.stock}}</p>
+          </ion-label>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

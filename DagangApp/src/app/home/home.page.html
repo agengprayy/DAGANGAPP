@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-menu-button id="sideBarMenu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onDisplayModeChange(1)" *ngIf="displayMode===2">
+        <ion-icon name="list"></ion-icon>
+      </ion-button>
+      <ion-button (click)="onDisplayModeChange(2)" *ngIf="displayMode===1">
+        <ion-icon name="grid"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="displayMode===1">
+    <ion-grid>
+      <ion-row>
+        <ion-col size ="10" size-sm="12" offset-sm="0" ng-reflect-size="10">
+          <app-list-view *ngFor="let barang of barangs" [barang]='barang'></app-list-view>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div *ngIf="displayMode===2">
+    <ion-grid>
+      <ion-row>
+        <ng-container *ngFor="let barang of barangs">
+          <ion-col size="6" ng-reflect-size="6" *ngIf="barang.stock != '0'">
+            <app-grid-view [barang]='barang'></app-grid-view>
+          </ion-col>
+        </ng-container>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

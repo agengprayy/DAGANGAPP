@@ -1,0 +1,18 @@
+<ion-grid>
+  <ion-row>
+    <ion-col *ngIf="barang.stock != '0'">
+      <ion-card>
+        <ion-item [routerLink]="['./', barang.id]">
+          <ion-thumbnail slot="start">
+            <img [src]="barang.imageUrl">
+          </ion-thumbnail>
+          <ion-label>
+            <h3>{{barang.model}}</h3>
+            <p>{{barang.price}}</p>
+            <p>Ready Stock {{barang.stock}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
